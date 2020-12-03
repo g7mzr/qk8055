@@ -1,0 +1,30 @@
+#ifndef CONFIG_H
+#define CONFIG_H 1
+
+/* Name of package */
+#cmakedefine PROJECT_NAME "@PROJECT_NAME@"
+
+/* Version number of package */
+#cmakedefine PROJECT_VERSION "@PROJECT_VERSION@"
+
+/* Description of Project */
+#cmakedefine PROJECT_DESCRIPTION "@PROJECT_DESCRIPTION@"
+
+/* Copyright Year */
+#cmakedefine COPYRIGHT_YEAR "@COPYRIGHT_YEAR@"
+
+/* Author Name */
+#cmakedefine AUTHOR_NAME "@AUTHOR_NAME@"
+
+/* Author Email Address */
+#cmakedefine AUTHOR_EMAIL "@AUTHOR_EMAIL@"
+
+/* Program Homepage */
+#cmakedefine PROJECT_HOMEPAGE "@PROJECT_HOMEPAGE@"
+
+/* Program License Name*/
+#cmakedefine PROJECT_LICENSE_NAME "@PROJECT_LICENSE_NAME@"
+
+/* Program License_URL */
+#cmakedefine PROJECT_LICENSE_URL "@PROJECT_LICENSE_URL@"
+#endif
