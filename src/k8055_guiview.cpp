@@ -116,6 +116,10 @@ void k8055_guiView::k8055_connect()
     m_ui.groupBox->setEnabled(false);
 
     enablek8055inputs(true);
+    counter1debounce(2);
+    counter2debounce(2);
+    m_ui.counter1_2ms->setChecked(true);
+    m_ui.counter2_2ms->setChecked(true);
     timer->start(250);
     emit sendStatusBarUpdate(tr("Connected to K8055 Board ") + QString::number(selectedboard));
 }
