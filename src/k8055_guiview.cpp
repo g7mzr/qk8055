@@ -24,18 +24,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "k8055_guiview.h"
 
 //#include "k8055_guiSettings.h"
-//#include "k8055_guidebug.h"
+#include "gui_debug.h"
 
 #include "k8055.h"
 
 // KF Headers
 #include <QTimer>
-#include <QDebug>
+//#include <QDebug>
 
 int analogue1 = 0;
 int analogue2 = 0;
 int digital = 0;
-
+ 
 
 k8055_guiView::k8055_guiView(QWidget *parent)
     : QWidget(parent)
@@ -76,6 +76,10 @@ k8055_guiView::k8055_guiView(QWidget *parent)
     // Set up timer for reading input data from K8055 Board
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(timer_timeout()));
+    
+    testtimer = new QTimer(this);
+    connect(testtimer, SIGNAL(timeout()), this, SLOT(test_timer_timeout()));
+    
     enablek8055inputs(false);
     checkBoxReadOnly();
     m_ui.libraryversionlineEdit->setText(Version());
@@ -88,7 +92,7 @@ k8055_guiView::~k8055_guiView()
 
 void k8055_guiView::k8055_connect()
 {
-    qDebug() << "k8055_guiView::k8055_connect()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::k8055_connect()";
     int selectedboard = 0;
     if (m_ui.Board0->isChecked()) {
         selectedboard = 0;
@@ -105,7 +109,7 @@ void k8055_guiView::k8055_connect()
     
     int openResult = OpenDevice((long) selectedboard);
     if (openResult < 0) {
-        qDebug() << "k8055_guiView::k8055_connect() - Unable to open device";
+        qCDebug(QK8055_GUI) << "k8055_guiView::k8055_connect() - Unable to open device";
         emit sendStatusBarUpdate(tr("Unable to connect to K8055 Board: ") + QString::number(selectedboard));
         return;
     }
@@ -116,8 +120,8 @@ void k8055_guiView::k8055_connect()
     m_ui.groupBox->setEnabled(false);
 
     enablek8055inputs(true);
-    counter1debounce(2);
-    counter2debounce(2);
+    counter1debounce(-3);
+    counter2debounce(-3);
     m_ui.counter1_2ms->setChecked(true);
     m_ui.counter2_2ms->setChecked(true);
     timer->start(250);
@@ -131,9 +135,11 @@ void k8055_guiView::k8055_disconnect()
         return;
     }
         
-    qDebug() << "k8055_guiView::k8055_disconnect()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::k8055_disconnect()";
     
     timer->stop();
+    testtimer->stop();
+    m_ui.outputtestbutton->setChecked(false);
     SetAllValues(0, 0, 0);
     ResetCounter(1);
     ResetCounter(2);
@@ -185,7 +191,7 @@ void k8055_guiView::k8055_disconnect()
 
 void k8055_guiView::checkBoxReadOnly()
 {
-    qDebug() << "k8055_guiView::checkboxreadonly()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::checkboxreadonly()";
    m_ui.din1->setAttribute(Qt::WA_TransparentForMouseEvents);
    m_ui.din1->setFocusPolicy(Qt::NoFocus);    
    m_ui.din2->setAttribute(Qt::WA_TransparentForMouseEvents);
@@ -207,6 +213,7 @@ void k8055_guiView::timer_timeout()
     long c1;
     long c2;
     
+    timer->stop();
     ReadAllValues( &d,&a1,&a2,&c1,&c2); 
     
     m_ui.AD1lineEdit->setText(QString::number(a1));
@@ -243,12 +250,13 @@ void k8055_guiView::timer_timeout()
     }
     m_ui.counter1display->setText(QString::number(c1));
     m_ui.counter2display->setText(QString::number(c2));
+    timer->start(250);
 }
 
 
 void k8055_guiView::enablek8055inputs(bool enabled)
 {
-    qDebug() << "k8055_guiView::enablek8055inputs()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::enablek8055inputs()";
     m_ui.DA1Slider->setEnabled(enabled);
     m_ui.DA2Slider->setEnabled(enabled);
     m_ui.AD1ProgressBar->setEnabled(enabled);
@@ -269,7 +277,7 @@ void k8055_guiView::enablek8055inputs(bool enabled)
 
 void k8055_guiView::update_analogue1(int i)
 {
-    qDebug() << "k8055_guiView::update_analogue1()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::update_analogue1()";
     SetAllValues(digital, (long) i, analogue2);
     m_ui.DA1LineEdit->setText(QString::number(i));
     analogue1 = i;
@@ -277,7 +285,7 @@ void k8055_guiView::update_analogue1(int i)
 
 void k8055_guiView::update_analogue2(int i)
 {
-    qDebug() << "k8055_guiView::update_analogue2()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::update_analogue2()";
     SetAllValues(digital, analogue1, (long) i);
     m_ui.DA2LineEdit->setText(QString::number(i));
     analogue2 = i;
@@ -286,7 +294,7 @@ void k8055_guiView::update_analogue2(int i)
 
 void k8055_guiView::update_dout1(int state)
 {
-    qDebug() << "k8055_guiView::updatedout1()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::updatedout1()";
     long port_no = 1;
     if (state == 0) {
         digital = digital & ~port_no;
@@ -298,7 +306,7 @@ void k8055_guiView::update_dout1(int state)
 
 void k8055_guiView::update_dout2(int state)
 {
-    qDebug() << "k8055_guiView::updatedout2()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::updatedout2()";
     long port_no = 2;
     if (state == 0) {
         digital = digital & ~port_no;
@@ -310,7 +318,7 @@ void k8055_guiView::update_dout2(int state)
 
 void k8055_guiView::update_dout3(int state)
 {
-    qDebug() << "k8055_guiView::updatedout3()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::updatedout3()";
     long port_no = 4;
     if (state == 0) {
         digital = digital & ~port_no;
@@ -322,7 +330,7 @@ void k8055_guiView::update_dout3(int state)
 
 void k8055_guiView::update_dout4(int state)
 {
-    qDebug() << "k8055_guiView::updatedout4()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::updatedout4()";
     long port_no = 8;
     if (state == 0) {
         digital = digital & ~port_no;
@@ -334,7 +342,7 @@ void k8055_guiView::update_dout4(int state)
 
 void k8055_guiView::update_dout5(int state)
 {
-    qDebug() << "k8055_guiView::updatedout5()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::updatedout5()";
     long port_no = 16;
     if (state == 0) {
         digital = digital & ~port_no;
@@ -346,7 +354,7 @@ void k8055_guiView::update_dout5(int state)
 
 void k8055_guiView::update_dout6(int state)
 {
-    qDebug() << "k8055_guiView::updatedout6()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::updatedout6()";
     long port_no = 32;
     if (state == 0) {
         digital = digital & ~port_no;
@@ -358,7 +366,7 @@ void k8055_guiView::update_dout6(int state)
 
 void k8055_guiView::update_dout7(int state)
 {
-    qDebug() << "k8055_guiView::updatedout7()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::updatedout7()";
     long port_no = 64;
     if (state == 0) {
         digital = digital & ~port_no;
@@ -370,7 +378,7 @@ void k8055_guiView::update_dout7(int state)
 
 void k8055_guiView::update_dout8(int state)
 {
-    qDebug() << "k8055_guiView::updatedout8()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::updatedout8()";
     long port_no = 128;
     if (state == 0) {
         digital = digital & ~port_no;
@@ -382,19 +390,19 @@ void k8055_guiView::update_dout8(int state)
 
 void k8055_guiView::counter1reset()
 {
-    qDebug() << "k8055_guiView::counter1reset()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::counter1reset()";
     ResetCounter(1);
 }
 
 void k8055_guiView::counter2reset()
 {
-    qDebug() << "k8055_guiView::counter2reset()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::counter2reset()";
     ResetCounter(2);
 }
 
 void k8055_guiView::counter1debounce(int id)
 {
-    qDebug() << "k8055_guiView::counter1debounce()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::counter1debounce()";
     long debouncetime = 0;
     if (id == -2) {
         debouncetime = 0;
@@ -405,14 +413,14 @@ void k8055_guiView::counter1debounce(int id)
     } else if (id == -5 ) {
         debouncetime = 1000;
     } else {
-       qDebug() << "k8055_guiView::counter1debounce() -  invalid button";
+       qCDebug(QK8055_GUI) << "k8055_guiView::counter1debounce() -  invalid button";
     }
     SetCounterDebounceTime(1, debouncetime);
 }
 
 void k8055_guiView::counter2debounce(int id)
 {
-    qDebug() << "k8055_guiView::counter2debounce()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::counter2debounce()";
     long debouncetime = 0;
     if (id == -2) {
         debouncetime = 0;
@@ -423,7 +431,7 @@ void k8055_guiView::counter2debounce(int id)
     } else if (id == -5 ) {
         debouncetime = 1000;
     } else {
-       qDebug() << "k8055_guiView::counter2debounce() -  invalid button";
+       qCDebug(QK8055_GUI) << "k8055_guiView::counter2debounce() -  invalid button";
     }
     SetCounterDebounceTime(2, debouncetime);
 }
@@ -431,7 +439,7 @@ void k8055_guiView::counter2debounce(int id)
 
 void k8055_guiView::setalldigital()
 {
-    qDebug() << "k8055_guiView::setalldigital()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::setalldigital()";
     m_ui.dout1->setChecked(true);
     m_ui.dout2->setChecked(true);
     m_ui.dout3->setChecked(true);
@@ -446,7 +454,7 @@ void k8055_guiView::setalldigital()
 
 void k8055_guiView::clearalldigital()
 {
-    qDebug() << "k8055_guiView::clearalldigital()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::clearalldigital()";
     m_ui.dout1->setChecked(false);
     m_ui.dout2->setChecked(false);
     m_ui.dout3->setChecked(false);
@@ -461,7 +469,7 @@ void k8055_guiView::clearalldigital()
 
 void k8055_guiView::setallanalogue()
 {
-    qDebug() << "k8055_guiView::setallanalogue()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::setallanalogue()";
     m_ui.DA1Slider->setValue(255);
     m_ui.DA2Slider->setValue(255);
     analogue1 = 255;
@@ -471,7 +479,7 @@ void k8055_guiView::setallanalogue()
 
 void k8055_guiView::clearallanalogue()
 {
-    qDebug() << "k8055_guiView::clearallanalogue()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::clearallanalogue()";
     m_ui.DA1Slider->setValue(0);
     m_ui.DA2Slider->setValue(0);
     analogue1 = 0;
@@ -481,6 +489,43 @@ void k8055_guiView::clearallanalogue()
 
 void k8055_guiView::outputtest()
 {
-    qDebug() << "k8055_guiView::outputtest()";
+    qCDebug(QK8055_GUI) << "k8055_guiView::outputtest()";
+    
+    if (m_ui.outputtestbutton->isChecked()) {
+        qCDebug(QK8055_GUI) << "k8055_guiView::outputtest() - Start Timer";
+        m_ui.dout1->setChecked(true);
+        testoutput = 1;
+        testtimer->start(500);
+    } else {
+        qCDebug(QK8055_GUI) << "k8055_guiView::outputtest() - Stop Timer";
+        testtimer->stop();
+    }
+        
+    // Switch on Channel 1
+    //WriteAllDigital(1);
+    //m_ui.dout1->setChecked(true);
 }
 
+void k8055_guiView::test_timer_timeout()
+{
+    qCDebug(QK8055_GUI) << "k8055_guiView::test_timer_timeout()";
+    QStringList myStringList;
+    QString name = "dout" + QString::number(testoutput);
+    QList<QCheckBox *> list = m_ui.digitalOutputGroup->findChildren<QCheckBox *>();
+    foreach (QCheckBox *checkBox, list) {
+        if (checkBox->objectName() == name) {
+            checkBox->setChecked(false);
+        }
+    }
+    
+    testoutput++;
+    
+    if (testoutput > 8) 
+        testoutput = 1;
+    
+    name = "dout" + QString::number(testoutput);
+    foreach (QCheckBox *checkBox2, list) {
+        if (checkBox2->objectName() == name)
+            checkBox2->setChecked(true);
+    }
+}

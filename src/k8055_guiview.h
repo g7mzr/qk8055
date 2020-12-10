@@ -21,8 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef K8055_GUIVIEW_H
 #define K8055_GUIVIEW_H
 
-#include "ui_k8055_guiview.h"
 
+#include "ui_k8055_guiview.h"
 
 /**
  * This class serves as the main window for k8055_gui.  It handles the
@@ -52,6 +52,7 @@ public Q_SLOTS:
     void update_analogue1(int i);
     void update_analogue2(int i);
     void timer_timeout();
+    void test_timer_timeout();
     void update_dout1(int state);
     void update_dout2(int state);
     void update_dout3(int state);
@@ -79,6 +80,9 @@ private:
     // you can rename it in designer and then change it here
     Ui::k8055_guiView m_ui;
     QTimer *timer;
+    QTimer *testtimer;
+    
+    int testoutput = 1;
     
     void enablek8055inputs(bool enabled);
     void checkBoxReadOnly();

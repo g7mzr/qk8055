@@ -818,6 +818,9 @@
         <property name="text">
          <string>Output Test</string>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -867,7 +870,7 @@
   </property>
  </designerdata>
  <buttongroups>
-  <buttongroup name="counter1buttonGroup"/>
   <buttongroup name="counter2buttonGroup"/>
+  <buttongroup name="counter1buttonGroup"/>
  </buttongroups>
 </ui>

@@ -2,8 +2,9 @@
 #include "qk8055.h"
 #include "ui_qk8055.h"
 #include "k8055_guiview.h"
+#include "gui_debug.h"
 #include <QCloseEvent>
-#include <QDebug>
+//#include <QDebug>
 #include <QMessageBox>
 
 
@@ -29,7 +30,7 @@ void qk8055::closeEvent(QCloseEvent *event)
     //if(m_k8055_guiView->m_ui.disconnectButton->isEnabled()) {
     //        
     //}
-    qDebug() << "qk8055::closeEvent()";
+    qCDebug(QK8055_GUI) << "qk8055::closeEvent()";
     m_k8055_guiView->k8055_disconnect();
     event->accept();
 }
@@ -37,18 +38,19 @@ void qk8055::closeEvent(QCloseEvent *event)
 
 void qk8055::createStatusBar(QString msg)
 {
-    
+    qCDebug(QK8055_GUI) << "qk8055::createStatusBar";
     statusBar()->showMessage(msg);
 }
 
 void qk8055::on_actionQuit_triggered() {
-    qDebug() << "qk8055::on_actionQuit_triggered()";
+    qCDebug(QK8055_GUI) << "qk8055::on_actionQuit_triggered()";
     qApp->closeAllWindows();
 }
 
 
 void qk8055::on_actionAbout_triggered()
 {
+    qCDebug(QK8055_GUI) << "qk8055::on_actionAbout_triggered";
     // QMessageBox::about(this, tr("About K8055 Application"),
     //          tr("The <b>Application</b> example demonstrates how to "
     //             "write modern GUI applications using Qt, with a menu bar, "
@@ -92,6 +94,7 @@ void qk8055::on_actionAbout_triggered()
 
 void qk8055::on_actionAboutQT_triggered()
 {
+    qCDebug(QK8055_GUI) << "qk8055::on_actionAboutQT_triggered";
     QMessageBox::aboutQt(this);    
 }
 

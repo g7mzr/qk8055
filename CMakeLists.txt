@@ -22,6 +22,9 @@ set(CMAKE_AUTOUIC ON)
 # Find the QtWidgets library
 find_package(Qt5Widgets CONFIG REQUIRED)
 
+# Find the QT5 Linguist Tools
+find_package(Qt5LinguistTools)
+
 include(cmake/modules.cmake)
 include(cmake/includes.cmake)
 include(cmake/copyright.cmake)
