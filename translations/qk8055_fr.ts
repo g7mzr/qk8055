@@ -179,32 +179,32 @@
     <message>
         <location filename="../src/k8055_guiview.ui" line="779"/>
         <source>Set All Digital</source>
-        <translation>Définir tout numérique</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/k8055_guiview.ui" line="789"/>
         <source>Clear All Digital</source>
-        <translation>Effacer tout numérique</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/k8055_guiview.ui" line="799"/>
         <source>Set All Analogue</source>
-        <translation>Définir tout analogique</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/k8055_guiview.ui" line="809"/>
         <source>Clear All Analogue</source>
-        <translation>Effacer tout analogique</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/k8055_guiview.ui" line="819"/>
         <source>Output Test</source>
-        <translation>Test de sortie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/k8055_guiview.ui" line="829"/>
         <source>Library Version</source>
-        <translation>Version de la bibliothèque</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/k8055_guiview.ui" line="835"/>
