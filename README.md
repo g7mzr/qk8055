@@ -23,7 +23,7 @@ Due to the differences in package names across distributions I leave it to you t
 ## libk8055
 qk8055 requires the k8055 C library written by Sven Lindberg.  There are a number of modification required to the Makefile, libk8055 and vellman.rules file for the k8055 demonstration program supplied with the library as well as qk8055 to operate correctly.
 
-How to obtain the library and the required modifications are explained in [lib8055.md](lib8055.md).
+How to obtain the library and the required modifications are explained in [libk8055.md](libk8055.md).
 
 ## Installation
 Download the source code from [qk8055 GitHub Homepage](https://github.com/g7mzr/qk8055) either using `git clone`, as a tar file or from the "Releases" for the latest stable release.
