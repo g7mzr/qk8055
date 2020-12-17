@@ -1,6 +1,6 @@
 # qk8055
 
-##Introduction
+## Introduction
 qk8055 is a demonstration program for the Velleman K8055 Board written using the Qt5 framework in C++.  The program only runs under linux at this time.
 
 ![qk8055 Application](images/screenshot.png)
