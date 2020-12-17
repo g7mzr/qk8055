@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QApplication>
 #include <QTranslator>
 #include "gui_debug.h"
+#include <QLibraryInfo>
 
 int main(int argc, char *argv[])
 {
@@ -29,18 +30,38 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     
     
-    // Load and configure QTranslator
+    // Load and configure QTranslator for application translations
     QTranslator translator;
 
     bool isTrlsFileLoaded = translator.load("qk8055", ":/translations");
     
     if(!isTrlsFileLoaded) {
-        qCDebug(QK8055_GUI) << "Translation File Not Loaded";
+        qCDebug(QK8055_GUI) << "qk8055 Translation File Not Loaded";
     }
     else {
-        qCDebug(QK8055_GUI) << "Translation File Loaded";
+        qCDebug(QK8055_GUI) << "qk8055 Translation File Loaded";
         qApp->installTranslator(&translator);
     }
+    
+
+    // Load and configure QTranslator for QT Translations
+    QTranslator translatorQT;
+
+    bool isTrlsQTFileLoaded = translatorQT.load(
+        QLocale(), 
+        QLatin1String("qtbase"), 
+        QLatin1String("_"), 
+        QLibraryInfo::location(QLibraryInfo::TranslationsPath)
+    );
+    
+    if(!isTrlsQTFileLoaded) {
+        qCDebug(QK8055_GUI) << "QT Base Translation File Not Loaded";
+    }
+    else {
+        qCDebug(QK8055_GUI) << "QT Base Translation File Loaded";
+        qApp->installTranslator(&translatorQT);
+    }
+    
     
     qk8055 w;
     w.show();
