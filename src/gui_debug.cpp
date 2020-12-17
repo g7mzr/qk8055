@@ -1,5 +1,5 @@
 /*
-Copyright (C) %{CURRENT_YEAR} by %{AUTHOR} <%{EMAIL}>
+Copyright (C) 2020 by Sandy McNeil <g7mzrdev@gmail.com>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License as
