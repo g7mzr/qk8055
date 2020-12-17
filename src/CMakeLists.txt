@@ -20,6 +20,8 @@
 
 include_directories("${PROJECT_SOURCE_DIR}")
 
+add_compile_definitions(QT_DISABLE_DEPRECATED_BEFORE=0x050F00)
+
 # Set the qk8055 source variable
 set(qk8055_SRC
     main.cpp
