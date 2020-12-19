@@ -2,14 +2,22 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_GB">
 <context>
+    <name>Config_Dialog</name>
+    <message>
+        <location filename="../src/config_dialog.ui" line="35"/>
+        <source>Configure qk8055</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>QMessageBox</name>
     <message>
-        <location filename="../src/qk8055.cpp" line="81"/>
+        <location filename="../src/qk8055.cpp" line="82"/>
         <source>&lt;h3&gt;About %1&lt;/h3&gt;&lt;p&gt;%1 Version %2.&lt;/p&gt;&lt;p&gt;%3&lt;/&gt;</source>
         <translation>&lt;h3&gt;About %1&lt;/h3&gt;&lt;p&gt;%1 Version %2.&lt;/p&gt;&lt;p&gt;%3&lt;/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.cpp" line="90"/>
+        <location filename="../src/qk8055.cpp" line="91"/>
         <source>&lt;p&gt;%4 is licensed under %7&lt;/p&gt;&lt;p&gt;Please see &lt;a href=&quot;https://%2/&quot;&gt;%2&lt;/a&gt; for an overview of %4 licensing.&lt;/p&gt;&lt;p&gt;Copyright (C) %1 %5 &lt;a href=&quot;mailto:%6&quot;&gt;%6&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;%4 is developed as an open source project. See &lt;a href=&quot;http://%3/&quot;&gt;%3&lt;/a&gt; for more information.&lt;/p&gt;</source>
         <translation>&lt;p&gt;%4 is licensed under %7&lt;/p&gt;&lt;p&gt;Please see &lt;a href=&quot;https://%2/&quot;&gt;%2&lt;/a&gt; for an overview of %4 licensing.&lt;/p&gt;&lt;p&gt;Copyright (C) %1 %5 &lt;a href=&quot;mailto:%6&quot;&gt;%6&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;%4 is developed as an open source project. See &lt;a href=&quot;http://%3/&quot;&gt;%3&lt;/a&gt; for more information.&lt;/p&gt;</translation>
     </message>
@@ -128,7 +136,7 @@
         <location filename="../src/k8055_guiview.ui" line="498"/>
         <location filename="../src/k8055_guiview.ui" line="575"/>
         <source>4</source>
-        <translation>3</translation>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../src/k8055_guiview.ui" line="508"/>
@@ -207,7 +215,7 @@
         <translation>Library Version</translation>
     </message>
     <message>
-        <location filename="../src/k8055_guiview.ui" line="835"/>
+        <location filename="../src/k8055_guiview.ui" line="838"/>
         <source>-</source>
         <translation>-</translation>
     </message>
@@ -245,27 +253,37 @@
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="53"/>
+        <location filename="../src/qk8055.ui" line="41"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qk8055.ui" line="60"/>
         <source>Quit</source>
         <translation>Quit</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="56"/>
+        <location filename="../src/qk8055.ui" line="63"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="61"/>
+        <location filename="../src/qk8055.ui" line="68"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="66"/>
+        <location filename="../src/qk8055.ui" line="73"/>
         <source>About QT</source>
         <translation>About QT</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.cpp" line="110"/>
+        <location filename="../src/qk8055.ui" line="78"/>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qk8055.cpp" line="111"/>
         <source>About QK8055</source>
         <translation>About QK8055</translation>
     </message>

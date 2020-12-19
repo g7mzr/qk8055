@@ -45,6 +45,17 @@ public:
      * Default Destructor
      */
     ~k8055_guiView() override;
+    
+    /**
+     * Set timer for reading board data
+     */
+    void setReadFrequency(int frequency);
+    
+    /**
+     * Get the timeout for reading the board data
+     */
+    int getReadFrequency();
+
 
 public Q_SLOTS:
     void k8055_connect();
@@ -83,6 +94,7 @@ private:
     QTimer *testtimer;
     
     int testoutput = 1;
+    int readFrequency = 250;
     
     void enablek8055inputs(bool enabled);
     void checkBoxReadOnly();

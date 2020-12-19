@@ -124,7 +124,7 @@ void k8055_guiView::k8055_connect()
     counter2debounce(-3);
     m_ui.counter1_2ms->setChecked(true);
     m_ui.counter2_2ms->setChecked(true);
-    timer->start(250);
+    timer->start(readFrequency);
     emit sendStatusBarUpdate(tr("Connected to K8055 Board ") + QString::number(selectedboard));
 }
 
@@ -250,7 +250,7 @@ void k8055_guiView::timer_timeout()
     }
     m_ui.counter1display->setText(QString::number(c1));
     m_ui.counter2display->setText(QString::number(c2));
-    timer->start(250);
+    timer->start(readFrequency);
 }
 
 
@@ -528,4 +528,22 @@ void k8055_guiView::test_timer_timeout()
         if (checkBox2->objectName() == name)
             checkBox2->setChecked(true);
     }
+}
+
+
+/**
+ * Set timer for reading board data
+ */
+void k8055_guiView::setReadFrequency(int frequency)
+{
+    readFrequency = frequency;
+}
+
+
+/**
+ * Get the timeout for reading the board data
+ */
+int k8055_guiView::getReadFrequency()
+{
+    return(readFrequency);
 }

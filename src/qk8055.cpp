@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "qk8055.h"
 #include "ui_qk8055.h"
 #include "k8055_guiview.h"
+#include "config_dialog.h"
 #include "gui_debug.h"
 #include <QCloseEvent>
 //#include <QDebug>
@@ -129,6 +130,10 @@ void qk8055::writeSettings()
     settings.setValue("size", size());
     settings.setValue("pos", pos());
     settings.endGroup();
+    
+    settings.beginGroup("Configuration");
+    settings.setValue("frequency", m_k8055_guiView->getReadFrequency());
+    settings.endGroup();
 }
 
 void qk8055::readSettings()
@@ -139,4 +144,16 @@ void qk8055::readSettings()
     resize(settings.value("size", QSize(400, 400)).toSize());
     move(settings.value("pos", QPoint(951, 630)).toPoint());
     settings.endGroup();
+    
+    settings.beginGroup("Configuration");
+    m_k8055_guiView->setReadFrequency(settings.value("frequency", 250).toInt());
+    settings.endGroup();
+
+}
+
+
+void qk8055::on_actionPreferences_triggered()
+{
+    m_config_dialog = new Config_Dialog();
+    m_config_dialog->exec();
 }

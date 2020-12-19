@@ -831,6 +831,9 @@
         <layout class="QGridLayout" name="gridLayout_10">
          <item row="0" column="0">
           <widget class="QLineEdit" name="libraryversionlineEdit">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>-</string>
            </property>
@@ -870,7 +873,7 @@
   </property>
  </designerdata>
  <buttongroups>
-  <buttongroup name="counter2buttonGroup"/>
   <buttongroup name="counter1buttonGroup"/>
+  <buttongroup name="counter2buttonGroup"/>
  </buttongroups>
 </ui>
