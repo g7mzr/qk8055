@@ -18,6 +18,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "config.h"
 #include "qk8055.h"
 #include <QApplication>
 #include <QTranslator>
@@ -29,6 +30,9 @@ int main(int argc, char *argv[])
     
     QApplication app(argc, argv);
     
+    QCoreApplication::setOrganizationName("g7mzr");
+    QCoreApplication::setOrganizationDomain("g7mzr.github.io");
+    QCoreApplication::setApplicationName(PROJECT_NAME);
     
     // Load and configure QTranslator for application translations
     QTranslator translator;

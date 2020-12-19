@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QMainWindow>
 #include <QScopedPointer>
+#include <QSettings>
 
 #include "k8055_guiview.h"
 
@@ -40,6 +41,7 @@ class qk8055 : public QMainWindow
 public:
     explicit qk8055(QWidget *parent = nullptr);
     ~qk8055() override;
+
     
 public Q_SLOTS:
      void createStatusBar(QString msg);
@@ -56,6 +58,9 @@ protected:
 private:
     QScopedPointer<Ui::qk8055> m_ui;
     k8055_guiView *m_k8055_guiView;
+    
+    void writeSettings();
+    void readSettings();
 };
 
 #endif // QK8055_H

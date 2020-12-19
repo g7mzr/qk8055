@@ -23,7 +23,6 @@ else()
     SET(SYSTEM_LIBRARY "/usr/lib")
 endif()
 
-
 # check if k8055.h exists
 CHECK_INCLUDE_FILE(k8055.h K8055_H_EXISTS)
 if(NOT K8055_H_EXISTS)

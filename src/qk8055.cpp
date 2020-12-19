@@ -37,6 +37,7 @@ qk8055::qk8055(QWidget *parent) :
     m_k8055_guiView = new k8055_guiView(this);
     setCentralWidget(m_k8055_guiView);
     
+    readSettings();
     createStatusBar("Disconnected");
     connect(m_k8055_guiView, SIGNAL(sendStatusBarUpdate(QString)), this, SLOT(createStatusBar(QString)));  
 
@@ -52,6 +53,7 @@ void qk8055::closeEvent(QCloseEvent *event)
     //}
     qCDebug(QK8055_GUI) << "qk8055::closeEvent()";
     m_k8055_guiView->k8055_disconnect();
+    writeSettings();
     event->accept();
 }
 
@@ -118,3 +120,23 @@ void qk8055::on_actionAboutQT_triggered()
     QMessageBox::aboutQt(this);    
 }
 
+
+void qk8055::writeSettings()
+{
+    QSettings settings;
+
+    settings.beginGroup("MainWindow");
+    settings.setValue("size", size());
+    settings.setValue("pos", pos());
+    settings.endGroup();
+}
+
+void qk8055::readSettings()
+{
+    QSettings settings;
+
+    settings.beginGroup("MainWindow");
+    resize(settings.value("size", QSize(400, 400)).toSize());
+    move(settings.value("pos", QPoint(951, 630)).toPoint());
+    settings.endGroup();
+}

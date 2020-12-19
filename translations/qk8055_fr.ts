@@ -4,12 +4,12 @@
 <context>
     <name>QMessageBox</name>
     <message>
-        <location filename="../src/qk8055.cpp" line="79"/>
+        <location filename="../src/qk8055.cpp" line="81"/>
         <source>&lt;h3&gt;About %1&lt;/h3&gt;&lt;p&gt;%1 Version %2.&lt;/p&gt;&lt;p&gt;%3&lt;/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.cpp" line="88"/>
+        <location filename="../src/qk8055.cpp" line="90"/>
         <source>&lt;p&gt;%4 is licensed under %7&lt;/p&gt;&lt;p&gt;Please see &lt;a href=&quot;https://%2/&quot;&gt;%2&lt;/a&gt; for an overview of %4 licensing.&lt;/p&gt;&lt;p&gt;Copyright (C) %1 %5 &lt;a href=&quot;mailto:%6&quot;&gt;%6&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;%4 is developed as an open source project. See &lt;a href=&quot;http://%3/&quot;&gt;%3&lt;/a&gt; for more information.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -265,7 +265,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.cpp" line="108"/>
+        <location filename="../src/qk8055.cpp" line="110"/>
         <source>About QK8055</source>
         <translation type="unfinished"></translation>
     </message>
