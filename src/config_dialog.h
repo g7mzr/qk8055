@@ -1,6 +1,7 @@
 /*
- * <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) 2020  Sandy McNeil <g7mzr35@gmail.com>
+ * Velleman qk8055 Experimental Board Interface Program Configuration Dialog.
+ * 
+ * Copyright (C) 2020  Sandy McNeil <g7mzrdev@gmail.com>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,6 +45,20 @@ public:
      * Destructor
      */
     ~Config_Dialog();
+    
+    /**
+     * Set the Dialog Box with the current Values
+     */
+    void setDialogValues(int period);
+    
+    /**
+     * Read the Frequency Setting
+     */
+    int getPollingValue();
+    
+private Q_SLOTS:
+    void updateHZDisplay(int period);
+    void resetToDefault();
 
 private:
     QScopedPointer<Ui::Config_Dialog> m_ui;

@@ -8,6 +8,21 @@
         <source>Configure qk8055</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/config_dialog.ui" line="53"/>
+        <source>Input Sampling Duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/config_dialog.ui" line="59"/>
+        <source> ms</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/config_dialog.ui" line="85"/>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QMessageBox</name>

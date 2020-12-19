@@ -124,6 +124,7 @@ void qk8055::on_actionAboutQT_triggered()
 
 void qk8055::writeSettings()
 {
+    qCDebug(QK8055_GUI) << "qk8055::writeSettings";
     QSettings settings;
 
     settings.beginGroup("MainWindow");
@@ -132,12 +133,13 @@ void qk8055::writeSettings()
     settings.endGroup();
     
     settings.beginGroup("Configuration");
-    settings.setValue("frequency", m_k8055_guiView->getReadFrequency());
+    settings.setValue("frequency", m_k8055_guiView->getPollingTime());
     settings.endGroup();
 }
 
 void qk8055::readSettings()
 {
+    qCDebug(QK8055_GUI) << "qk8055::readSettings";
     QSettings settings;
 
     settings.beginGroup("MainWindow");
@@ -146,7 +148,7 @@ void qk8055::readSettings()
     settings.endGroup();
     
     settings.beginGroup("Configuration");
-    m_k8055_guiView->setReadFrequency(settings.value("frequency", 250).toInt());
+    m_k8055_guiView->setPollingTime(settings.value("frequency", 250).toInt());
     settings.endGroup();
 
 }
@@ -154,6 +156,14 @@ void qk8055::readSettings()
 
 void qk8055::on_actionPreferences_triggered()
 {
+    qCDebug(QK8055_GUI) << "qk8055::on_actionPreferences_triggered";
     m_config_dialog = new Config_Dialog();
-    m_config_dialog->exec();
+    m_config_dialog->setDialogValues(m_k8055_guiView->getPollingTime());
+    int result = m_config_dialog->exec();
+    if (result == QDialog::Accepted) {
+        qCDebug(QK8055_GUI) << "qk8055::on_actionPreferences_triggered - Dialog Result = Accepted";
+        int pollingValue = m_config_dialog->getPollingValue();
+        m_k8055_guiView->setPollingTime(pollingValue);
+    }
+
 }

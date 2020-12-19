@@ -1,6 +1,7 @@
 /*
- * <one line to give the program's name and a brief idea of what it does.>
- * Copyright (C) 2020  Sandy McNeil <g7mzr35@gmail.com>
+ * Velleman qk8055 Experimental Board Interface Program Configuration Dialog.
+ * 
+ * Copyright (C) 2020  Sandy McNeil <g7mzrdev@gmail.com>
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,13 +19,45 @@
 
 #include "config_dialog.h"
 #include "ui_config_dialog.h"
+#include "gui_debug.h"
+#include "k8055_guiview.h"
 
 Config_Dialog::Config_Dialog()
     : m_ui(new Ui::Config_Dialog)
 {
     m_ui->setupUi(this);
+    connect(m_ui->timerDurationInput, SIGNAL(valueChanged(int)), this, SLOT(updateHZDisplay(int)));
+    connect(m_ui->defaultButton, SIGNAL(clicked()), this, SLOT(resetToDefault()));
 }
 
 Config_Dialog::~Config_Dialog()
 {
+}
+
+
+void Config_Dialog::updateHZDisplay(int period)
+{
+     qCDebug(QK8055_GUI) << "Config_Dialog::updateHZDisplay";
+     double hzvalue = 1000.00 / period;
+     m_ui->hzEdit->setText(QString::number(hzvalue,'f',2).append(" Hz"));
+}
+
+
+void Config_Dialog::resetToDefault()
+{
+    qCDebug(QK8055_GUI) << "Config_Dialog::resetToDefault";
+    m_ui->timerDurationInput->setValue(250);
+}
+
+void Config_Dialog::setDialogValues(int period)
+{
+    qCDebug(QK8055_GUI) << "Config_Dialog::setDialogValues";
+    m_ui->timerDurationInput->setValue(period);
+    
+}
+
+int Config_Dialog::getPollingValue()
+{
+    qCDebug(QK8055_GUI) << "Config_Dialog::getPollingValue";
+    return m_ui->timerDurationInput->value();
 }

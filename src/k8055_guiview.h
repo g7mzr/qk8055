@@ -49,12 +49,12 @@ public:
     /**
      * Set timer for reading board data
      */
-    void setReadFrequency(int frequency);
+    void setPollingTime(int period);
     
     /**
      * Get the timeout for reading the board data
      */
-    int getReadFrequency();
+    int getPollingTime();
 
 
 public Q_SLOTS:
@@ -94,7 +94,7 @@ private:
     QTimer *testtimer;
     
     int testoutput = 1;
-    int readFrequency = 250;
+    int pollingFrequency = 250;
     
     void enablek8055inputs(bool enabled);
     void checkBoxReadOnly();
