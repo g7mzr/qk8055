@@ -82,7 +82,7 @@
          <item row="0" column="2">
           <widget class="QPushButton" name="defaultButton">
            <property name="text">
-            <string>Default</string>
+            <string>Default (4Hz)</string>
            </property>
           </widget>
          </item>
@@ -96,7 +96,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>151</width>
+          <width>140</width>
           <height>20</height>
          </size>
         </property>

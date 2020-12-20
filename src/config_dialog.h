@@ -37,30 +37,74 @@ class Config_Dialog : public QDialog
 
 public:
     /**
-     * Default constructor
+     * Constructor
+     * 
+     * The qk8055 configuration dialog box constructor
      */
     Config_Dialog();
 
     /**
      * Destructor
+     * 
+     * The qk8055 configuration dialog box destructor
      */
     ~Config_Dialog();
     
     /**
-     * Set the Dialog Box with the current Values
+     * FUNCTION: setDialogValues
+     * 
+     * This function is used to populate the dialof with the current configuration
+     * values used by the application
+     * 
+     * @param int period The polling requenxy for the K8055 board in ms
+     * 
+     * @return void
+     * 
+     * @access public
      */
     void setDialogValues(int period);
     
     /**
-     * Read the Frequency Setting
-     */
+     * FUNCTION: getPollingValue
+     * 
+     * This function retrieves the K8055 Polling frequency in ms from the Configuration
+     * Dialog Box as an integer
+     *
+     * @return int The k8055 Polling frequency in ms
+     *
+     *@access public
+     */ 
     int getPollingValue();
     
 private Q_SLOTS:
+    /**
+     * SLOT: updateHZDisplay
+     * 
+     * Ths SLOT takes the current value in MS from the input spin box and displays it
+     * in the HzDisplat Edit box as a frequenct in Hz.
+     * 
+     * @para int period The number of ms the spinbox is set to.
+     * 
+     * @return void
+     * 
+     * @access private
+     */
     void updateHZDisplay(int period);
+    
+    /**
+     * SLOT: resetToDefault
+     * 
+     * This SLOT resets the value to be used by the board polling timer to 250ms or 4Hz. The actual
+     * value used is only updated when the input is acepted (OK Button Clicked)
+     * 
+     * @return void
+     * 
+     * @access private
+     */
     void resetToDefault();
 
 private:
+    // Pointer to the Configuration Dialogbox structure
     QScopedPointer<Ui::Config_Dialog> m_ui;
 };
 

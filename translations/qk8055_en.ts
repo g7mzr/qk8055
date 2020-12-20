@@ -6,22 +6,22 @@
     <message>
         <location filename="../src/config_dialog.ui" line="35"/>
         <source>Configure qk8055</source>
-        <translation type="unfinished"></translation>
+        <translation>Configure qk8055</translation>
     </message>
     <message>
         <location filename="../src/config_dialog.ui" line="53"/>
         <source>Input Sampling Duration</source>
-        <translation type="unfinished"></translation>
+        <translation>Input Sampling Duration</translation>
     </message>
     <message>
         <location filename="../src/config_dialog.ui" line="59"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../src/config_dialog.ui" line="85"/>
-        <source>Default</source>
-        <translation type="unfinished"></translation>
+        <source>Default (4Hz)</source>
+        <translation>Default (4Hz)</translation>
     </message>
 </context>
 <context>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../src/k8055_guiview.ui" line="344"/>
         <source>DA1</source>
-        <translation>DA2</translation>
+        <translation>DA1</translation>
     </message>
     <message>
         <location filename="../src/k8055_guiview.ui" line="388"/>
@@ -270,7 +270,7 @@
     <message>
         <location filename="../src/qk8055.ui" line="41"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <location filename="../src/qk8055.ui" line="60"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../src/qk8055.ui" line="78"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferences</translation>
     </message>
     <message>
         <location filename="../src/qk8055.cpp" line="111"/>

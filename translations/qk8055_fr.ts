@@ -20,7 +20,7 @@
     </message>
     <message>
         <location filename="../src/config_dialog.ui" line="85"/>
-        <source>Default</source>
+        <source>Default (4Hz)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
