@@ -28,6 +28,7 @@ set(qk8055_SRC
     qk8055.cpp
     k8055_guiview.cpp
     gui_debug.cpp
+    config_dialog.cpp
 )
 
 # Set the Translation Source files
@@ -36,8 +37,10 @@ set(qk8055_TRANSLATION_SRC
     qk8055.cpp
     k8055_guiview.cpp
     gui_debug.cpp
+    config_dialog.cpp
     k8055_guiview.ui
     qk8055.ui
+    config_dialog.ui
 )
 
 # Set the Translation Files

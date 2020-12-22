@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "qk8055.h"
 #include "ui_qk8055.h"
 #include "k8055_guiview.h"
+#include "config_dialog.h"
 #include "gui_debug.h"
 #include <QCloseEvent>
 //#include <QDebug>
@@ -123,20 +124,46 @@ void qk8055::on_actionAboutQT_triggered()
 
 void qk8055::writeSettings()
 {
+    qCDebug(QK8055_GUI) << "qk8055::writeSettings";
     QSettings settings;
 
     settings.beginGroup("MainWindow");
     settings.setValue("size", size());
     settings.setValue("pos", pos());
     settings.endGroup();
+    
+    settings.beginGroup("Configuration");
+    settings.setValue("frequency", m_k8055_guiView->getPollingTime());
+    settings.endGroup();
 }
 
 void qk8055::readSettings()
 {
+    qCDebug(QK8055_GUI) << "qk8055::readSettings";
     QSettings settings;
 
     settings.beginGroup("MainWindow");
     resize(settings.value("size", QSize(400, 400)).toSize());
     move(settings.value("pos", QPoint(951, 630)).toPoint());
     settings.endGroup();
+    
+    settings.beginGroup("Configuration");
+    m_k8055_guiView->setPollingTime(settings.value("frequency", 250).toInt());
+    settings.endGroup();
+
+}
+
+
+void qk8055::on_actionPreferences_triggered()
+{
+    qCDebug(QK8055_GUI) << "qk8055::on_actionPreferences_triggered";
+    m_config_dialog = new Config_Dialog();
+    m_config_dialog->setDialogValues(m_k8055_guiView->getPollingTime());
+    int result = m_config_dialog->exec();
+    if (result == QDialog::Accepted) {
+        qCDebug(QK8055_GUI) << "qk8055::on_actionPreferences_triggered - Dialog Result = Accepted";
+        int pollingValue = m_config_dialog->getPollingValue();
+        m_k8055_guiView->setPollingTime(pollingValue);
+    }
+
 }
