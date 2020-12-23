@@ -258,42 +258,42 @@
         <translation>qk8055</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="28"/>
+        <location filename="../src/qk8055.ui" line="32"/>
         <source>File</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="34"/>
+        <location filename="../src/qk8055.ui" line="38"/>
         <source>Help</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="41"/>
+        <location filename="../src/qk8055.ui" line="45"/>
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="60"/>
+        <location filename="../src/qk8055.ui" line="68"/>
         <source>Quit</source>
         <translation>Quit</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="63"/>
+        <location filename="../src/qk8055.ui" line="71"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="68"/>
+        <location filename="../src/qk8055.ui" line="80"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="73"/>
+        <location filename="../src/qk8055.ui" line="89"/>
         <source>About QT</source>
         <translation>About QT</translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="78"/>
+        <location filename="../src/qk8055.ui" line="98"/>
         <source>Preferences</source>
         <translation>Preferences</translation>
     </message>

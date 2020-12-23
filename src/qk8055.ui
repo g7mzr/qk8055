@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>qk8055</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../build/src/resources.qrc">
+    <normaloff>:/icons/qk8055_48.png</normaloff>:/icons/qk8055_48.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -56,6 +60,10 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="../build/src/resources.qrc">
+     <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
+   </property>
    <property name="text">
     <string>Quit</string>
    </property>
@@ -64,21 +72,35 @@
    </property>
   </action>
   <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../build/src/resources.qrc">
+     <normaloff>:/icons/qk8055_16.png</normaloff>:/icons/qk8055_16.png</iconset>
+   </property>
    <property name="text">
     <string>About</string>
    </property>
   </action>
   <action name="actionAboutQT">
+   <property name="icon">
+    <iconset resource="../build/src/resources.qrc">
+     <normaloff>:/icons/qt.png</normaloff>:/icons/qt.png</iconset>
+   </property>
    <property name="text">
     <string>About QT</string>
    </property>
   </action>
   <action name="actionPreferences">
+   <property name="icon">
+    <iconset resource="../build/src/resources.qrc">
+     <normaloff>:/icons/preferences.svg</normaloff>:/icons/preferences.svg</iconset>
+   </property>
    <property name="text">
     <string>Preferences</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../build/src/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

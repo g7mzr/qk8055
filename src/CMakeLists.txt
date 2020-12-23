@@ -52,9 +52,12 @@ set(qk8055_TRANSLATION_FILES
 # create the translation files
 qt5_create_translation(QM_FILES ${qk8055_TRANSLATION_SRC} ${qk8055_TRANSLATION_FILES})
 
+# Copy the ICON Files to the BINARY Directory
+file(COPY "${PROJECT_SOURCE_DIR}/icons" DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
 # Copy and add the Translation Resource File
-configure_file("${PROJECT_SOURCE_DIR}/translations/translations.qrc" ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
-qt5_add_resources(qk8055_SRC ${CMAKE_CURRENT_BINARY_DIR}/translations.qrc)
+configure_file("${PROJECT_SOURCE_DIR}/resources/resources.qrc" ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+qt5_add_resources(qk8055_SRC ${CMAKE_CURRENT_BINARY_DIR}/resources.qrc)
 
 
 # Tell CMake to create the helloworld executable
@@ -72,3 +75,5 @@ target_link_libraries(qk8055
 
 # Install the executable
 install(TARGETS qk8055 DESTINATION bin)
+
+

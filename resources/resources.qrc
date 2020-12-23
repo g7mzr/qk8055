@@ -1,0 +1,15 @@
+<RCC>
+  <qresource lang="fr" prefix="/translations">
+    <file alias="qk8055.qm">qk8055_fr.qm</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file alias="preferences.svg">icons/preferences.svg</file>
+    <file alias="qk8055_16.png">icons/qk8055_16.png</file>
+    <file alias="qk8055_48.png">icons/qk8055_48.png</file>
+    <file alias="exit.png">icons/application-exit.png</file>
+    <file alias="qt.png">icons/Qt_logo.png</file>
+  </qresource>
+  <qresource lang="en" prefix="/translations">
+    <file alias="qk8055.qm">qk8055_en.qm</file>
+  </qresource>
+</RCC>
