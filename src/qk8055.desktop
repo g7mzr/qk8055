@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=qk8055
+GenericName=Qt Demonstration Program for Velleman K8055 Board
+Exec=qk8055
+Categories=Utility;Qt;Education;Science
+StartupNotify=true
+Terminal=false
+Icon=qk8055

@@ -39,4 +39,9 @@ If the build is successful then you can run qk8055 as follows:
 
   * ./src/qk8055
 
+To install the application run the following command from the build directory
+
+  * sudo make install
+  
+qk8055 should appear in the "Utilites" and "Education/Science" sub menus.
 

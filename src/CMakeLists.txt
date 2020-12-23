@@ -76,4 +76,6 @@ target_link_libraries(qk8055
 # Install the executable
 install(TARGETS qk8055 DESTINATION bin)
 
+# Install the menu shortcut.
+install(FILES "${PROJECT_SOURCE_DIR}/src/qk8055.desktop" DESTINATION "/usr/share/applications")
 

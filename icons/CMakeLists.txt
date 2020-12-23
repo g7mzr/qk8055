@@ -1,3 +1,4 @@
+
 # Copyright (C) 2020 by Sandy McNeil <g7mzrdev@gmail.com>
 
 # This program is free software; you can redistribute it and/or
@@ -16,41 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Top Level CMakeList.txt
+# icons directory CMakeList.txt
 
-cmake_minimum_required(VERSION 3.0)
+install(FILES "${PROJECT_SOURCE_DIR}/icons/qk8055_48.png" DESTINATION "/usr/share/icons/hicolor/48x48/apps" RENAME "qk8055.png")
 
-project(
-    qk8055   
-    VERSION 0.5.0 
-    DESCRIPTION "Qt Demonstration Program for Velleman K8055 Board"
-)
-
-
-# Find includes in corresponding build directories
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-# Instruct CMake to run moc automatically when needed.
-set(CMAKE_AUTOMOC ON)
-
-# Instruct CMake to create code from Qt designer ui files
-set(CMAKE_AUTOUIC ON)
-
-
-# Find the QtWidgets library
-find_package(Qt5Widgets CONFIG REQUIRED)
-
-# Find the QT5 Linguist Tools
-find_package(Qt5LinguistTools)
-
-include(cmake/modules.cmake)
-include(cmake/includes.cmake)
-include(cmake/copyright.cmake)
-
-configure_file(
-    "${PROJECT_SOURCE_DIR}/config.h.in" 
-    "${PROJECT_SOURCE_DIR}/config.h"
-)
-
-add_subdirectory(src)
-add_subdirectory(icons)
