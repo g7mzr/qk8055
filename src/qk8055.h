@@ -27,6 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "k8055_guiview.h"
 #include "config_dialog.h"
+#include "scandevices.h"
 
 #include <QCloseEvent>
 
@@ -52,6 +53,7 @@ private Q_SLOTS:
     void on_actionAbout_triggered();
     void on_actionAboutQT_triggered();
     void on_actionPreferences_triggered();
+    void on_actionScan_Devices_triggered();
     
     
 protected:
@@ -61,6 +63,7 @@ private:
     QScopedPointer<Ui::qk8055> m_ui;
     k8055_guiView *m_k8055_guiView;
     Config_Dialog *m_config_dialog;
+    ScanDevices *m_scandevices_dialog;
     
     void writeSettings();
     void readSettings();

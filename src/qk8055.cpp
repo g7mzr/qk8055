@@ -20,9 +20,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config.h"
 #include "qk8055.h"
+#include "k8055.h"
 #include "ui_qk8055.h"
 #include "k8055_guiview.h"
 #include "config_dialog.h"
+#include "scandevices.h"
 #include "gui_debug.h"
 #include <QCloseEvent>
 //#include <QDebug>
@@ -166,4 +168,14 @@ void qk8055::on_actionPreferences_triggered()
         m_k8055_guiView->setPollingTime(pollingValue);
     }
 
+}
+
+void qk8055::on_actionScan_Devices_triggered()
+{
+    qCDebug(QK8055_GUI) << "qk8055::on_actionScan_Devices_triggered";
+    long result = SearchDevices();
+    m_scandevices_dialog = new ScanDevices();
+    m_scandevices_dialog->loadBoardData(result);
+    m_scandevices_dialog->exec();
+    
 }

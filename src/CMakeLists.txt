@@ -29,6 +29,7 @@ set(qk8055_SRC
     k8055_guiview.cpp
     gui_debug.cpp
     config_dialog.cpp
+    scandevices.cpp
 )
 
 # Set the Translation Source files
@@ -38,9 +39,11 @@ set(qk8055_TRANSLATION_SRC
     k8055_guiview.cpp
     gui_debug.cpp
     config_dialog.cpp
+    scandevices.cpp
     k8055_guiview.ui
     qk8055.ui
     config_dialog.ui
+    scandevices.ui
 )
 
 # Set the Translation Files

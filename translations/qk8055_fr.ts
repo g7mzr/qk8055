@@ -27,13 +27,58 @@
 <context>
     <name>QMessageBox</name>
     <message>
-        <location filename="../src/qk8055.cpp" line="82"/>
+        <location filename="../src/qk8055.cpp" line="84"/>
         <source>&lt;h3&gt;About %1&lt;/h3&gt;&lt;p&gt;%1 Version %2.&lt;/p&gt;&lt;p&gt;%3&lt;/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.cpp" line="91"/>
+        <location filename="../src/qk8055.cpp" line="93"/>
         <source>&lt;p&gt;%4 is licensed under %7&lt;/p&gt;&lt;p&gt;Please see &lt;a href=&quot;https://%2/&quot;&gt;%2&lt;/a&gt; for an overview of %4 licensing.&lt;/p&gt;&lt;p&gt;Copyright (C) %1 %5 &lt;a href=&quot;mailto:%6&quot;&gt;%6&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;%4 is developed as an open source project. See &lt;a href=&quot;http://%3/&quot;&gt;%3&lt;/a&gt; for more information.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ScanDevices</name>
+    <message>
+        <location filename="../src/scandevices.ui" line="29"/>
+        <source>Scan Devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scandevices.ui" line="48"/>
+        <source>Devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scandevices.ui" line="60"/>
+        <source>Port 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scandevices.ui" line="73"/>
+        <location filename="../src/scandevices.ui" line="99"/>
+        <location filename="../src/scandevices.ui" line="112"/>
+        <location filename="../src/scandevices.ui" line="151"/>
+        <location filename="../src/scandevices.cpp" line="51"/>
+        <location filename="../src/scandevices.cpp" line="58"/>
+        <location filename="../src/scandevices.cpp" line="65"/>
+        <location filename="../src/scandevices.cpp" line="72"/>
+        <source>Empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scandevices.ui" line="86"/>
+        <source>Port 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scandevices.ui" line="125"/>
+        <source>Port 2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scandevices.ui" line="138"/>
+        <source>Port 3</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -273,32 +318,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="68"/>
+        <location filename="../src/qk8055.ui" line="51"/>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qk8055.ui" line="75"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="71"/>
+        <location filename="../src/qk8055.ui" line="78"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="80"/>
+        <location filename="../src/qk8055.ui" line="87"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="89"/>
+        <location filename="../src/qk8055.ui" line="96"/>
         <source>About QT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.ui" line="98"/>
+        <location filename="../src/qk8055.ui" line="105"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/qk8055.cpp" line="111"/>
+        <location filename="../src/qk8055.ui" line="114"/>
+        <source>Scan Devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/qk8055.cpp" line="113"/>
         <source>About QK8055</source>
         <translation type="unfinished"></translation>
     </message>
