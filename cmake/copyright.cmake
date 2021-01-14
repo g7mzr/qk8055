@@ -1,5 +1,5 @@
-# Copyright (C) 2020 by Sandy McNeil <g7mzrdev@gmail.com>
-
+# Copyright (C) 2020, 2021 by Sandy McNeil <g7mzrdev@gmail.com>
+#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
 # published by the Free Software Foundation; either version 2 of
@@ -17,7 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # cmake file to hold ownership and copyright information.
 
-set(COPYRIGHT_YEAR "2020")
+set(COPYRIGHT_YEAR "2020, 2021")
 set(AUTHOR_NAME "Sandy McNeil")
 set(AUTHOR_EMAIL "g7mzrdev@gmail.com")
 set(PROJECT_HOMEPAGE "github.com/g7mzr/qk8055")
