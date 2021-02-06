@@ -1,32 +1,34 @@
 /*
-Copyright (C) 2020 by Sandy McNeil <g7mzrdev@gmail.com>
-
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation; either version 2 of
-the License or (at your option) version 3 or any later version
-accepted by the membership of KDE e.V. (or its successor approved
-by the membership of KDE e.V.), which shall act as a proxy 
-defined in Section 14 of version 3 of the license.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Velleman qk8055 Experimental Board Interface Program USB Bus Scanning Dialog.
+ * 
+ * Copyright (C) 2020, 2021  Sandy McNeil <g7mzrdev@gmail.com>
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #include "config.h"
 #include "qk8055.h"
+#include "k8055.h"
 #include "ui_qk8055.h"
 #include "k8055_guiview.h"
 #include "config_dialog.h"
+#include "scandevices.h"
 #include "gui_debug.h"
 #include <QCloseEvent>
 //#include <QDebug>
 #include <QMessageBox>
+#include <QDate>
 
 
 qk8055::qk8055(QWidget *parent) :
@@ -78,6 +80,8 @@ void qk8055::on_actionAbout_triggered()
     //          tr("The <b>Application</b> example demonstrates how to "
     //             "write modern GUI applications using Qt, with a menu bar, "
     //             "toolbars, and a status bar."));
+    
+    
     QString translatedTextAboutCaption; 
     translatedTextAboutCaption = QMessageBox::tr(
         "<h3>About %1</h3>"
@@ -101,9 +105,7 @@ void qk8055::on_actionAbout_triggered()
               QStringLiteral(PROJECT_NAME),
               QStringLiteral(AUTHOR_NAME),
               QStringLiteral(AUTHOR_EMAIL),
-              QStringLiteral(PROJECT_LICENSE_NAME));
-        
-        
+              QStringLiteral(PROJECT_LICENSE_NAME));        
         
     QMessageBox *msgBox = new QMessageBox(this);
     msgBox->setAttribute(Qt::WA_DeleteOnClose);
@@ -166,4 +168,14 @@ void qk8055::on_actionPreferences_triggered()
         m_k8055_guiView->setPollingTime(pollingValue);
     }
 
+}
+
+void qk8055::on_actionScan_Devices_triggered()
+{
+    qCDebug(QK8055_GUI) << "qk8055::on_actionScan_Devices_triggered";
+    long result = SearchDevices();
+    m_scandevices_dialog = new ScanDevices();
+    m_scandevices_dialog->loadBoardData(result);
+    m_scandevices_dialog->exec();
+    
 }

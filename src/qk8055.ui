@@ -46,7 +46,14 @@
     </property>
     <addaction name="actionPreferences"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionScan_Devices"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
    <addaction name="menuSettings"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -96,6 +103,15 @@
    </property>
    <property name="text">
     <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionScan_Devices">
+   <property name="icon">
+    <iconset resource="../build/src/resources.qrc">
+     <normaloff>:/icons/qk8055_16.png</normaloff>:/icons/qk8055_16.png</iconset>
+   </property>
+   <property name="text">
+    <string>Scan Devices</string>
    </property>
   </action>
  </widget>
