@@ -22,7 +22,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(
     qk8055   
-    VERSION 1.0.0 
+    VERSION 1.1.0 
     DESCRIPTION "Qt Demonstration Program for Velleman K8055 Board"
 )
 

@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.1.0] - 2021-02-05
 ### Added
 - K8055 Device Scan via the tools menu.
 
